@@ -30,7 +30,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	router := httphandler.NewRouter(storage, cfg.MaxFileSize, logger)
+	router := httphandler.NewRouter(storage, cfg.MaxFileSize, cfg, logger)
 
 	srv := &http.Server{
 		Addr:    cfg.HTTPAddr,
