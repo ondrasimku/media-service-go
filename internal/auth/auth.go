@@ -94,7 +94,7 @@ func (c *JWKSClient) GetKeySet(ctx context.Context) (jwk.Set, error) {
 		return nil, fmt.Errorf("JWKS endpoint returned status %d", resp.StatusCode)
 	}
 
-	set, err := jwk.ParseReader(resp.Body, jwk.WithPEM(true))
+	set, err := jwk.ParseReader(resp.Body)
 	if err != nil {
 		if c.cache != nil {
 			return c.cache.set, nil
